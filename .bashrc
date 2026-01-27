@@ -21,6 +21,7 @@ alias gd="git diff --output-indicator-new=' ' --output-indicator-old=' '"
 alias gds="git diff --output-indicator-new=' ' --output-indicator-old=' ' --staged"
 alias gap="git add --patch"
 alias lg="lazygit"
+alias cdi="zi"
 
 # source $(wt shellenv)
 
