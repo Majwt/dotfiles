@@ -1,0 +1,62 @@
+<!DOCTYPE patchbay>
+<patchbay name="audioConfig" version="0.9.6.4git.eede64">
+ <items>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Chat" port="Chat:monitor_FL"/>
+   <input node="RODECaster Duo Pro" port="RODECaster Duo:playback_AUX0"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="USB" port="USB:monitor_FL"/>
+   <input node="RODECaster Duo Pro 1" port="USB Audio #1:playback_AUX0"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="B" port="B:monitor_FL"/>
+   <input node="RODECaster Duo Pro 1" port="USB Audio #1:playback_AUX8"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Game" port="Game:monitor_FL"/>
+   <input node="RODECaster Duo Pro 1" port="USB Audio #1:playback_AUX2"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Chat" port="Chat:monitor_FR"/>
+   <input node="RODECaster Duo Pro" port="RODECaster Duo:playback_AUX1"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="A" port="A:monitor_FR"/>
+   <input node="RODECaster Duo Pro 1" port="USB Audio #1:playback_AUX7"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="RODECaster Duo Pro" port="RODECaster Duo:capture_AUX0"/>
+   <input node="RODE-Chat-mic Audio/Source/Virtual sink" port="RODE-Chat-mic Audio/Source/Virtual sink:input_FL"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="A" port="A:monitor_FL"/>
+   <input node="RODECaster Duo Pro 1" port="USB Audio #1:playback_AUX6"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Game" port="Game:monitor_FR"/>
+   <input node="RODECaster Duo Pro 1" port="USB Audio #1:playback_AUX3"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Music" port="Music:monitor_FL"/>
+   <input node="RODECaster Duo Pro 1" port="USB Audio #1:playback_AUX4"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="USB" port="USB:monitor_FR"/>
+   <input node="RODECaster Duo Pro 1" port="USB Audio #1:playback_AUX1"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="RODECaster Duo Pro" port="RODECaster Duo:capture_AUX1"/>
+   <input node="RODE-Chat-mic Audio/Source/Virtual sink" port="RODE-Chat-mic Audio/Source/Virtual sink:input_FR"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Music" port="Music:monitor_FR"/>
+   <input node="RODECaster Duo Pro 1" port="USB Audio #1:playback_AUX5"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="B" port="B:monitor_FR"/>
+   <input node="RODECaster Duo Pro 1" port="USB Audio #1:playback_AUX9"/>
+  </item>
+ </items>
+</patchbay>
+
