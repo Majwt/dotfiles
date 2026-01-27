@@ -1,16 +1,6 @@
 FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install base tools
-RUN apt update && apt install -y \
-  git \
-  sudo \
-  zsh \
-  neovim \
-  ripgrep \
-  fd-find \
-  ca-certificates \
-  && rm -rf /var/lib/apt/lists/*
 
 # fd binary fix
 RUN ln -s /usr/bin/fdfind /usr/bin/fd
@@ -22,13 +12,6 @@ RUN useradd -m -s /usr/bin/zsh testuser && \
 USER testuser
 WORKDIR /home/testuser
 
-# Copy host test repo
-COPY --chown=testuser:testuser ../.. /tmp/dotfiles-src
-
-# Clone bare repo into ~/.cfg and checkout
-RUN git clone --bare https://github.com/majwt/dots.git ~/.cfg && \
-  git --git-dir=$HOME/.cfg --work-tree=$HOME checkout -f && \
-  git --git-dir=$HOME/.cfg --work-tree=$HOME config --local status.showUntrackedFiles no
 
 CMD ["bash", "-l"]
 

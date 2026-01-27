@@ -1,30 +1,22 @@
 FROM archlinux:latest
 
-# Install base tools assumed by your dotfiles
-RUN pacman -Sy --noconfirm \
-  git \
-  sudo \
-  zsh \
-  neovim \
-  ripgrep \
-  fd \
-  && pacman -Scc --noconfirm
-
-# Create isolated user
 RUN useradd -m testuser && \
   echo "testuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+# install git
+RUN pacman -Syu --noconfirm git sudo base-devel
+
+# Create isolated user
 
 USER testuser
 WORKDIR /home/testuser
 
-# Copy the host test repo into the container
-COPY --chown=testuser:testuser ../.. /tmp/dotfiles-src
 
-# Clone bare repo into ~/.cfg and checkout to container HOME
-RUN git clone --bare https://github.com/majwt/dots.git ~/.cfg && \
-  git --git-dir=$HOME/.cfg --work-tree=$HOME checkout -f && \
-  git --git-dir=$HOME/.cfg --work-tree=$HOME config --local status.showUntrackedFiles no
+
+COPY .dots-tests/arch-packages.txt /tmp/packages.txt
+COPY .dots-tests/install-arch.sh /home/testuser/install.sh
+
 
 # Launch shell for interactive testing
-CMD ["bash", "-l"]
+CMD ["bash", "/home/testuser/install.sh"]
 
