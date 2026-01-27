@@ -1,0 +1,1 @@
+/home/majwt/.config/omarchy/current/theme/neovim.lua
