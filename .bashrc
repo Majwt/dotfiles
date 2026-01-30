@@ -13,6 +13,7 @@ source ~/.local/share/omarchy/default/bash/rc
 
 # Make Ctrl-o open Neovim for command editing
 bind '"\C-o": edit-and-execute-command'
+bind -f ~/.inputrc
 
 
 log="log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto)  %D%n%s%n'"
@@ -82,4 +83,11 @@ function fuck () {
   unset TF_HISTORY;
   export PYTHONIOENCODING=$TF_PYTHONIOENCODING;
   history -s $TF_CMD;
- }
+}
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
