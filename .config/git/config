@@ -78,6 +78,7 @@
   remote    = yellow
   upstream  = green
   plain     = blue
+
 [user]
 	name = Theodor Wase
 	email = theodor.wase@icloud.com
@@ -100,7 +101,13 @@
 [includeIf "gitdir:~/Work/**"]
     path = ~/Work/.gitconfig
 
+[includeIf "gitdir:~/Developer/**"]
+    path = ~/Developer/.gitconfig
+
 [includeIf "gitdir:~/Kth/**"]
     path = ~/Kth/.gitconfig
+[includeIf "gitdir:~/kth/**"]
+    path = ~/Kth/.gitconfig
+
 [commit]
 	template = ~/.config/git/commit_template
