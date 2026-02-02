@@ -14,8 +14,9 @@ gap="add --patch"
 alias cdi="zi"
 alias upd='docker compose up -d'
 alias down='docker compose down'
-alias lg="lazygit"
 alias dl='lazydocker'
+alias lg='lazygit'
+
 # git aliases
 
 alias gbm='git branch -m'
@@ -43,6 +44,23 @@ if [ -n "$ZSH_VERSION" ]; then
   # this is zsh
   source "$HOME/.config/zsh/fzf_config"
   source "$HOME/.config/zsh/config"
+
+  alias ls="eza -1 --icons=always -F --git --color=always -L 1 --group-directories-first -l --git -a --color-scale=size -h"
+  alias lsg="ezac --git-ignore"
+  alias lsa="ezac -a"
+  alias cat="bat"
+  alias grep="rg"
+  alias diff="diff-so-fancy"
+  alias neofetch="fastfetch"
+  alias makedb="compiledb -n make"
+
+  alias scd="cd"
+  alias cd="z"
+  alias cdi="zi"
+
+
+
+
   function src() {
     source "$HOME/.zshrc"
   }
@@ -60,11 +78,9 @@ source "$HOME/.local/share/omarchy/default/bash/rc"
 # Make Ctrl-o open Neovim for command editing
 bind '"\C-o": edit-and-execute-command'
 bind -f ~/.inputrc
-=======
 if command -v fzf >/dev/null 2>&1; then
   eval "$(fzf --bash)"
 fi
->>>>>>> Stashed changes
 
 # source $(wt shellenv)
 

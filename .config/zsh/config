@@ -32,29 +32,3 @@ if command -v fzf &>/dev/null; then
   fi
 fi
 
-alias ls="eza -1 --icons=always -F --git --color=always -L 1 --group-directories-first -l --git -a --color-scale=size -h"
-alias lsg="ezac --git-ignore"
-alias lsa="ezac -a"
-alias cat="bat"
-alias grep="rg"
-alias diff="diff-so-fancy"
-alias neofetch="fastfetch"
-alias makedb="compiledb -n make"
-
-alias scd="cd"
-alias cd="z"
-alias cdi="zi"
-
-
-
-# lg()
-# {
-#     export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
-#
-#     lazygit "$@"
-#
-#     if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-#             cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-#             rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
-#     fi
-# }
