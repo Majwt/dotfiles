@@ -1,4 +1,6 @@
 
-source $HOME/.bashrc
+export XDG_CONFIG_HOME=$HOME/.config
 
-if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+source "$XDG_CONFIG_HOME/shell/rc.sh"
+
+# if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi

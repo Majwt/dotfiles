@@ -1,7 +1,4 @@
 #!/usr/bin/env zsh
-
-export EDITOR="nvim"
-
 # mise
 if command -v mise &>/dev/null; then
   eval "$(mise activate zsh)"
@@ -24,11 +21,9 @@ fi
 
 # fzf
 if command -v fzf &>/dev/null; then
-  if [[ -f /usr/share/fzf/completion.zsh ]]; then
-    source /usr/share/fzf/completion.zsh
-  fi
-  if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
-    source /usr/share/fzf/key-bindings.zsh
-  fi
+  eval "$(fzf --zsh)"
 fi
+
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
 
