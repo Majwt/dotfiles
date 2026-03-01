@@ -36,14 +36,32 @@ alias cgl="config $log"
 alias ca="config add"
 alias cc="config commit"
 
-alias ls="eza -1 --icons=always -F --git --color=always -L 1 --group-directories-first -l --git -a --color-scale=size -h"
-alias lsg="ezac --git-ignore"
-alias lsa="ezac -a"
+alias ls="eza -1 --icons=always -F --color=always -L 1 --group-directories-first -l --git --color-scale=size -h"
+alias lsg="ls --git-ignore"
+alias lsa="ls -a"
 alias cat="bat"
 alias grep="rg"
 alias diff="diff-so-fancy"
 alias neofetch="fastfetch"
 alias makedb="compiledb -n make"
+
+function venv() {
+  if [ -z "$1" ]; then 
+    echo "Usage: venv <venv_path>"
+    return 1
+  fi
+  if command -v python3 &> /dev/null; then
+    echo "Creating virtual environment at: ${PWD}/${1}"
+    python3 -m venv "${1}"
+    if $? -ne 0; then
+      echo "Failed to create virtual environment. Please check the path and try again."
+      return 1
+    fi
+    activate "${1}"
+  else
+    echo "Python3 not found. Please ensure you have Python3 installed."
+  fi
+}
 
 function activate() {
   
@@ -51,6 +69,17 @@ function activate() {
     echo "Usage: activate <venv_path>"
     return 1
   fi
-  echo "Using env: $PWD/${1}/bin/activate"
-  source "$PWD/${1}/bin/activate"
+  echo "Using env: $PWD/$1/bin/activate"
+  source "$PWD/$1/bin/activate"
+  if command -v pip &> /dev/null; then
+    echo "Installing dependencies from requirements.txt"
+    pip install --upgrade pip
+    if [ -f "$PWD/requirements.txt" ]; then
+      pip install -r "$PWD/requirements.txt"
+    else
+      echo "requirements.txt not found in the current directory."
+    fi
+  else
+    echo "pip not found. Please ensure you have pip installed in your virtual environment."
+  fi
 }

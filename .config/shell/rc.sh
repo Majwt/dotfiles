@@ -1,6 +1,8 @@
 
 export XDG_CONFIG_HOME=$HOME/.config
 export EDITOR="nvim"
+export OMARCHY_SCREENSHOT_DIR=$HOME/Pictures/Screenshots
+export TERM="xterm-256color"
 
 function src() {
   source "$XDG_CONFIG_HOME/shell/rc.sh"
