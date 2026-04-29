@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+unset -f try 2>/dev/null
 source "$HOME/.local/share/omarchy/default/bash/rc"
 bind '"\C-o": edit-and-execute-command'
 bind -f ~/.inputrc
@@ -20,9 +20,8 @@ if command -v zoxide &>/dev/null; then
   eval "$(zoxide init bash)"
 fi
 
-# try
 if command -v try &>/dev/null; then
-  eval "$(try init ~/Work/tries)"
+  eval "$(SHELL=/bin/bash command try init ~/Work/tries)"
 fi
 
 if command -v fzf >/dev/null 2>&1; then
@@ -56,3 +55,12 @@ function y() {
   [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
 }
+
+show_timers() {
+    echo
+    printf "\033[1;36m󰥔 Timers\033[0m\n"
+    systemctl --user list-timers --all --no-pager \
+      | rg 'NEXT|immich-upload|commit-neovim'
+    echo
+}
+show_timers 
