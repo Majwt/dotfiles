@@ -42,13 +42,16 @@ alias ca="config add"
 alias cc="config commit"
 
 if command -v eza &> /dev/null; then
-  alias ls="eza -1 --icons=always -F --color=always -L 1 --group-directories-first -l --git --color-scale=size -h"
+  alias ls="eza -1 --icons=always -F --color=always -L 1 --group-directories-first -l -g --git --color-scale=size -h"
   alias lsg="ls --git-ignore"
 fi
 alias lsa="ls -a"
-if command -v bat &> /dev/null; then
+if [ -f /etc/lsb-release ] && grep -qi ubuntu /etc/lsb-release && command -v batcat &> /dev/null; then
+  alias cat="batcat"
+elif command -v bat &> /dev/null; then
   alias cat="bat"
 fi
+
 if command -v rg &> /dev/null; then
   alias grep="rg"
 fi
