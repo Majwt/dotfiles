@@ -45,8 +45,6 @@ symbol = " "
 [fennel]
 symbol = " "
 
-[fortran]
-symbol = " "
 
 [fossil_branch]
 symbol = " "
@@ -114,10 +112,8 @@ symbol = " "
 [os.symbols]
 Arch = " "
 Debian = " "
-Linux = " "
 Macos = " "
 Ubuntu = " "
-Unknown = " "
 Windows = "󰍲 "
 
 [package]
@@ -155,9 +151,6 @@ symbol = " "
 
 [swift]
 symbol = " "
-
-[xmake]
-symbol = " "
 
 [zig]
 symbol = " "
