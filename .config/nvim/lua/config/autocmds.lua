@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "h", "cpp", "hpp" },
+  pattern = { "c", "h", "cpp", "hpp", "cs", "csharp" },
   callback = function()
     vim.opt_local.tabstop = 4
     vim.opt_local.shiftwidth = 4

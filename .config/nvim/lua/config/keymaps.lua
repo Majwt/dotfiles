@@ -8,6 +8,8 @@ vim.keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>", { desc = "Disable arrow dow
 vim.keymap.set({ "n", "i", "v" }, "<Left>", "<Nop>", { desc = "Disable arrow left" })
 vim.keymap.set({ "n", "i", "v" }, "<Right>", "<Nop>", { desc = "Disable arrow right" })
 
+vim.keymap.set("n", "<leader>ae", "<cmd>Copilot toggle<cr>", { desc = "Toggle Copilot" })
+
 local last_js_css_source = nil
 
 local function switch_js_css()
