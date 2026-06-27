@@ -104,7 +104,7 @@ return {
       show_request_summary = true,
 
       -- do not show responses over maximum size, in bytes
-      max_response_size = 32768,
+      max_response_size = 327680,
 
       -- used by `Copy as Curl` command to determine whether to inline request body
       max_request_size = 2048,
@@ -195,7 +195,7 @@ return {
     ---@type boolean|table
     global_keymaps = {
       ["Send request"] = { -- sets global mapping
-        "<leader>Rs",
+        "<leader>rs",
         function()
           require("kulala").run()
         end,
@@ -203,7 +203,7 @@ return {
         desc = "Send request", -- optional description, otherwise inferred from the key
       },
       ["Send all requests"] = {
-        "<leader>Ra",
+        "<leader>ra",
         function()
           require("kulala").run_all()
         end,
@@ -211,7 +211,7 @@ return {
         ft = "http", -- sets mapping for *.http files only
       },
       ["Replay the last request"] = {
-        "<leader>Rr",
+        "<leader>rr",
         function()
           require("kulala").replay()
         end,
@@ -221,7 +221,7 @@ return {
     },
 
     -- Prefix for global keymaps
-    global_keymaps_prefix = "<leader>R",
+    global_keymaps_prefix = "<leader>r",
 
     -- Kulala UI keymaps; override with custom keymaps as required
     -- (see docs or lua/kulala/config/keymaps.lua)
